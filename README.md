@@ -30,7 +30,7 @@ Each `.docx` file will look like a genuine university assignment with proper sec
 
 1️⃣ Clone this repo:  
 ```bash
-git clone https://github.com/yourname/fake-assignment-generator.git
+git clone https://github.com/hyxONick/coursehero_file_generation.git
 cd fake-assignment-generator
 ````
 
