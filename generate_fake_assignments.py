@@ -50,18 +50,35 @@ additional_notes = [
     "Monitoring user feedback helps improve usability."
 ]
 
-# Generate random course code (format: ABCD123)
+# Realistic course code prefixes (common Australian uni style + common fields)
+course_prefixes = [
+    "BIO",    # Biology
+    "CSIT",   # Computer Science & IT
+    "MATH",   # Mathematics
+    "CHEM",   # Chemistry
+    "PHYS",   # Physics
+    "ENGG",   # Engineering
+    "ECON",   # Economics
+    "PSYC",   # Psychology
+    "HIST",   # History
+    "BUSI"    # Business
+]
+
+# Generate a full course code like "CSIT300" or "BIO204"
 def generate_course_code():
-    letters = ''.join(random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZ', k=4))
-    digits = ''.join(random.choices('0123456789', k=3))
-    return f"{letters}{digits}"
+    prefix = random.choice(course_prefixes)
+    number = random.randint(100, 499)  # typical course number range
+    return f"{prefix}{number}"
+
+# Generate one course code for the whole batch
+fixed_course_code = generate_course_code()
 
 # Generate 10 DOCX documents
 for i in range(1, 11):
     doc = Document()
 
-    # Generate random course info
-    course_code = generate_course_code()
+    # Use fixed course code and generate other course info
+    course_code = fixed_course_code
     course_name = f"Advanced {fake.bs().title()}"
     teacher_name = f"Dr. {fake.first_name()} {fake.last_name()}"
     semester = f"Semester {random.choice([1, 2, 3])} {random.choice([2024, 2025])}"
