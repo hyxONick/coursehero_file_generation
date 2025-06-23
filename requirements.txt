@@ -1,2 +1,2 @@
 python-docx
-faker
+Faker==19.13.0
